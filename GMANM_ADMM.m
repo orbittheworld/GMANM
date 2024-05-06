@@ -75,9 +75,6 @@ function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance)
         if err_prim < tol_prim && err_dual < tol_dual
             break;
         end
-%         if norm(Tu-ZT,'fro')/ norm(ZT,'fro')< 1e-3
-%             break;
-%         end
 
         ZOld = Z;
 
