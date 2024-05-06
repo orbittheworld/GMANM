@@ -46,7 +46,7 @@ function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance,TuMethod)
         Lambday = Lambda(N + 1:N + M, N + 1:N + M);
         Lambdax = Lambda(1:N, 1:N);
 
-        %update the variables X,V and u
+        %update the variables X,Tux and Tuy
         X = (2 * rho * Zs + 2 * Lambdas + Y)./(2 * rho * ones(N,M) + P);
         Tu_x = Tproj(Zx + 1 / rho * Lambdax - tau / 2 / rho / sqrt(N*M) * eye(N));
         Tu_y = Tproj(Zy + 1 / rho * Lambday - tau / 2 / rho / sqrt(N*M) * eye(M));
