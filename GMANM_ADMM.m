@@ -10,7 +10,7 @@ function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance)
     % Y : incomplete observation signal of generalized rectangular array
     % P : sampling matrix
     % X : complete observation signal of uniform rectangular array
-    % tolerance : acceptable level of error
+    % tolerance : acceptable error
 
     %size of mesurements
     [N, M] = size(Y);
