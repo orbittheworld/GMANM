@@ -10,7 +10,7 @@ function [f] = GMANM(Y, P, K, sigma,tolerance)
     % Y : incomplete observation signal of generalized rectangular array
     % P : sampling matrix
     % X : complete observation signal of uniform rectangular array
-    % sigma : noise level
+    % sigma : noise standard deviation
     % tolerance : acceptable error
 
     %size of mesurements
