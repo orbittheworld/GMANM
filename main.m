@@ -54,7 +54,7 @@ HWvec = HW(locP);
 v = [Xf(locP),Yf(locP)];%[azimuth,elevation]
 %% Decoupled ANM
 tic; 
-[f] = GMANM_ADMM(P.*HW, P, K, sigma,1e-5,'music');
+[f] = GMANM_ADMM(P.*HW, P, K, sigma,1e-5);
 toc;
 ef_r = f(1, :);
 ef_t = f(2, :);
