@@ -28,11 +28,11 @@ function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance)
 
     %initialization
     X0 = Y;%N*M
-    Tu_x0 = X0 * X0';%N*N
-    Tu_y0 = X0' * X0;%M*M
+    Tu_x0 = X0 * X0';
+    Tu_y0 = X0' * X0;
 
-    ZOld = [Tu_x0, X0; X0', Tu_y0]; %actually the Z matrix
-    Lambda = zeros(N+M); %Lagrangian multiplier
+    ZOld = [Tu_x0, X0; X0', Tu_y0];
+    Lambda = zeros(N+M);
 
     for iter = 1:maxiter
 
