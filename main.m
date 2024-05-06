@@ -25,11 +25,11 @@ locP = find(P==1);
 NP = length(locP);
 %% Frequencies
 SNR = 20;
-K = 4; % Sparsity (rank)
-theta = [60,80,90,130]/180*pi;%0-180
-phi = [120,80,90,100]/180*pi;%0-180
-f_r = (cos(theta).*sin(phi))/2;%azi
-f_t = cos(phi)/2;%ele
+K = 4; 
+theta = [60,80,90,130]/180*pi;
+phi = [120,80,90,100]/180*pi;
+f_r = (cos(theta).*sin(phi))/2;
+f_t = cos(phi)/2;
 c = [1,1,2,2];
 %% Generate Array Manifolds
 v_M = [0:(M - 1)]';
@@ -51,7 +51,7 @@ HW = P.*HW;
 HWvec = HW(locP);
 
 [Yf,Xf]= meshgrid(v_M,v_N);
-v = [Xf(locP),Yf(locP)];%[azimuth,elevation]
+v = [Xf(locP),Yf(locP)];
 %% Decoupled ANM
 tic; 
 [f] = GMANM_ADMM(P.*HW, P, K, sigma,1e-5);
@@ -59,8 +59,8 @@ toc;
 ef_r = f(1, :);
 ef_t = f(2, :);
 
-ephi = acosd(2*ef_t);%1*K
-etheta = acosd(2*ef_r./sind(ephi));%1*K
+ephi = acosd(2*ef_t);
+etheta = acosd(2*ef_r./sind(ephi));
 figure(1);
 scatter(etheta,ephi,'rv','filled','LineWidth',1.5);hold on;
 scatter(theta/pi*180,phi/pi*180,'ko','LineWidth',1.5);hold off;
