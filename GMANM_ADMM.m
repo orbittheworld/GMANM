@@ -1,4 +1,4 @@
-function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance,TuMethod)
+function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance)
     % Written by Silin Gao
     % 2024.3
     % Formulation:
@@ -94,16 +94,8 @@ function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance,TuMethod)
     end
 
     %% Vandermonde Decomposition
-    if strcmp(TuMethod, 'music')
-        fx_e = rootMUSIC(Tu_x, K); 
-        fy_e = rootMUSIC(Tu_y, K);
-    elseif strcmp(TuMethod, 'prony')
-        fx_e = PRONY(Tu_x, K);
-        fy_e = PRONY(Tu_x, K);
-    else
-        fx_e = MatrixPencil(Tu_x, K);
-        fy_e = MatrixPencil(Tu_y, K);
-    end
+    fx_e = rootMUSIC(Tu_x, K); 
+    fy_e = rootMUSIC(Tu_y, K);
 
     %% Pairing
     v_N = [0:(N - 1)]';
