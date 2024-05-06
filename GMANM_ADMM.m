@@ -6,12 +6,12 @@ function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance,TuMethod)
     % 1/2*||P.*X-Y||_F^2+tau/2/sqrt(NM)*(trace(Tu_x)+trace(Tu_y))
     % (Tu,X;X',V)>=0
     % INPUT:
-    % Y : N*M 不完整观测值（SRA）
-    % P : N*M 部分观测的采样矩阵，1的地方是布置了sensor，0的地方代表missing sensor
-    % X : N*M X=Ax*C*Az^H 完整观测信号（URA）
-    % Ax: N*K 水平向阵列流形
+    % Y : 不完整观测值
+    % P : 部分观测的采样矩阵
+    % X : 完整观测信号
+    % Ax: 水平向阵列流形
     % C : K*K
-    % Az: M*K 垂直向阵列流形
+    % Az: 垂直向阵列流形
     % tolerance : 可接受的误差水平
 
     %size of mesurements
@@ -25,7 +25,7 @@ function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance,TuMethod)
     alpha = 10;
     mu = 2;
     rho = 1.0; % penalty parameter in augmented Lagrangian
-    tol_abs = tolerance;% 1E-5
+    tol_abs = tolerance;
     tol_rel = tolerance;
     maxiter = 1e5;
 
@@ -95,8 +95,8 @@ function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance,TuMethod)
 
     %% Vandermonde Decomposition
     if strcmp(TuMethod, 'music')
-        fx_e = rootMUSIC(Tu_x, K); %(-0.5,0.5)
-        fy_e = rootMUSIC(Tu_y, K); %(-0.5,0.5)
+        fx_e = rootMUSIC(Tu_x, K); 
+        fy_e = rootMUSIC(Tu_y, K);
     elseif strcmp(TuMethod, 'prony')
         fx_e = PRONY(Tu_x, K);
         fy_e = PRONY(Tu_x, K);
