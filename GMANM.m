@@ -1,4 +1,4 @@
-function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance)
+function [f] = GMANM(Y, P, K, sigma,tolerance)
     % Written by Silin Gao, 2024.3
     % Article: Efficient gridless 2D DOA estimation based on generalized matrix-form atomic norm minimization
     % Article DOI: 10.1049/ell2.13212
