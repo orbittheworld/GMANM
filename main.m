@@ -52,9 +52,9 @@ HWvec = HW(locP);
 
 [Yf,Xf]= meshgrid(v_M,v_N);
 v = [Xf(locP),Yf(locP)];
-%% Decoupled ANM
+%% GMANM--ADMM
 tic; 
-[f] = GMANM_ADMM(P.*HW, P, K, sigma,1e-5);
+[f] = GMANM(P.*HW, P, K, sigma,1e-5);
 toc;
 ef_r = f(1, :);
 ef_t = f(2, :);
