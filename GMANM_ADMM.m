@@ -7,10 +7,10 @@ function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance)
     % 1/2*||P.*X-Y||_F^2+tau/2/sqrt(NM)*(trace(Tu_x)+trace(Tu_y))
     % (Tu,X;X',V)>=0
     % Input:
-    % Y : 不完整观测值
-    % P : 部分观测的采样矩阵
-    % X : 完整观测信号
-    % tolerance : 可接受的误差水平
+    % Y : incomplete observation signal of generalized rectangular array
+    % P : sampling matrix
+    % X : complete observation signal of uniform rectangular array
+    % tolerance : acceptable level of error
 
     %size of mesurements
     [N, M] = size(Y);
