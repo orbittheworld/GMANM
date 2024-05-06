@@ -9,9 +9,6 @@ function [f] = GMANM_ADMM(Y, P, K, sigma,tolerance)
     % Y : 不完整观测值
     % P : 部分观测的采样矩阵
     % X : 完整观测信号
-    % Ax: 水平向阵列流形
-    % C : K*K
-    % Az: 垂直向阵列流形
     % tolerance : 可接受的误差水平
 
     %size of mesurements
